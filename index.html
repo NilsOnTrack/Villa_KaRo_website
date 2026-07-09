@@ -107,11 +107,14 @@
       letter-spacing: 0.15em;
       color: var(--white);
       transition: color 0.4s ease;
-      z-index: 101;
+      position: relative;
+      z-index: 102;
     }
     .nav.scrolled .nav-logo { color: var(--ink); }
     .nav.menu-open .nav-logo { color: var(--white); }
     .nav-logo .ka, .nav-logo .ro { color: var(--terracotta); }
+    .nav.menu-open .nav-logo .ka,
+    .nav.menu-open .nav-logo .ro { color: #f4c9a8; }
 
     .nav-links {
       display: flex;
@@ -138,7 +141,7 @@
       border: none;
       cursor: pointer;
       position: relative;
-      z-index: 101;
+      z-index: 102;
     }
     .burger span {
       position: absolute;
@@ -161,23 +164,36 @@
       .nav { padding: 1.1rem 1.25rem; }
       .nav.scrolled { padding: 0.9rem 1.25rem; }
       .burger { display: block; }
+
+      /* Mobile-Menü: slidet von rechts rein, nutzt dvh gegen iOS-URL-Bar Bug */
       .nav-links {
         position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
         background: var(--deep-green);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
-        transform: translateY(-100%);
-        transition: transform 0.5s ease;
+        gap: 2.5rem;
+        margin: 0;
+        padding: 0;
+
+        transform: translateX(100%);
+        visibility: hidden;
+        transition: transform 0.4s ease, visibility 0s linear 0.4s;
+        z-index: 101;
       }
       .nav.menu-open .nav-links {
-        transform: translateY(0);
+        transform: translateX(0);
+        visibility: visible;
+        transition: transform 0.4s ease, visibility 0s linear 0s;
       }
       .nav-links a {
         color: var(--white) !important;
-        font-size: 1.1rem;
+        font-size: 1.25rem;
         letter-spacing: 0.2em;
       }
     }
@@ -188,6 +204,7 @@
     .hero {
       position: relative;
       height: 100vh;
+      height: 100dvh;
       min-height: 600px;
       overflow: hidden;
       display: flex;
@@ -201,6 +218,7 @@
       background-image: url('images/hero.jpg');
       background-size: cover;
       background-position: center;
+      background-color: #2f4a3a; /* Fallback wenn Bild fehlt */
       animation: kenburns 20s ease-in-out infinite alternate;
     }
     .hero-bg::after {
@@ -347,6 +365,8 @@
     .villa-image {
       position: relative;
       overflow: hidden;
+      background: var(--sand-dark); /* Fallback */
+      min-height: 300px;
     }
     .villa-image img {
       width: 100%;
@@ -461,6 +481,7 @@
       overflow: hidden;
       position: relative;
       cursor: pointer;
+      background: var(--sand-dark); /* Fallback wenn Bild fehlt */
     }
     .gallery-item img {
       width: 100%; height: 100%;
@@ -519,11 +540,11 @@
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
+      background-color: var(--deep-green); /* Fallback */
       position: relative;
       color: var(--white);
       text-align: center;
     }
-    /* Fixed backgrounds sind auf iOS problematisch — auf Mobile scrollend */
     @media (max-width: 900px) {
       .rates { background-attachment: scroll; }
     }
@@ -772,7 +793,7 @@
   <!-- ================= NAV ================= -->
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo">Villa <span class="ka">Ka</span><span class="ro">Ro</span></a>
-    <button class="burger" id="burger" aria-label="Menü öffnen">
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
@@ -1087,17 +1108,27 @@
     });
 
     // Burger toggle
-    burger.addEventListener('click', () => {
-      nav.classList.toggle('menu-open');
-      document.body.style.overflow = nav.classList.contains('menu-open') ? 'hidden' : '';
+    const toggleMenu = (open) => {
+      const isOpen = open ?? !nav.classList.contains('menu-open');
+      nav.classList.toggle('menu-open', isOpen);
+      burger.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
+    burger.addEventListener('click', () => toggleMenu());
+
+    // Menü nach Klick auf Link schließen
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => toggleMenu(false));
     });
 
-    // Menü nach Klick auf Link schließen (Mobile)
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        nav.classList.remove('menu-open');
-        document.body.style.overflow = '';
-      });
+    // ESC schließt Menü
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && nav.classList.contains('menu-open')) toggleMenu(false);
+    });
+
+    // Menü zurücksetzen wenn Viewport auf Desktop wechselt
+    window.addEventListener('resize', () => {
+      if (window.innerWidth > 768 && nav.classList.contains('menu-open')) toggleMenu(false);
     });
 
     // Fade-In beim Scrollen
