@@ -1,805 +1,27 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Villa KaRo · Ihr privates Refugium in Pemuteran, Bali</title>
-  <meta name="description" content="Villa KaRo — eine private Poolvilla mit tropischem Garten in Pemuteran, Bali. Ein Schlafzimmer, unmittelbare Strandnähe, Ruhe und Luxus für Paare." />
+  <meta name="description" content="Villa KaRo — eine private Poolvilla mit tropischem Garten in Pemuteran, Bali. Ein Schlafzimmer, unmittelbare Strandnähe, Ruhe und Luxus für Paare.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <style>
-    /* =========================
-       Reset & Basis
-       ========================= */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      font-weight: 300;
-      color: var(--ink);
-      background: var(--sand);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    :root {
-      --terracotta: #b8552e;
-      --terracotta-dark: #8f3f1f;
-      --sand: #f5efe6;
-      --sand-dark: #ebe1d1;
-      --ink: #2a2622;
-      --ink-soft: #5c534b;
-      --deep-green: #2f4a3a;
-      --pool: #4a90a4;
-      --white: #fffdf9;
-      --serif: 'Cormorant Garamond', 'Times New Roman', serif;
-    }
-
-    h1, h2, h3, h4 {
-      font-family: var(--serif);
-      font-weight: 400;
-      color: var(--ink);
-      letter-spacing: 0.01em;
-      line-height: 1.15;
-    }
-
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    .section {
-      padding: 8rem 0;
-    }
-    @media (max-width: 768px) {
-      .section { padding: 4.5rem 0; }
-      .container { padding: 0 1.25rem; }
-    }
-
-    .eyebrow {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 500;
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title {
-      font-size: clamp(2rem, 4vw, 3.5rem);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-lead {
-      font-size: 1.05rem;
-      color: var(--ink-soft);
-      max-width: 640px;
-    }
-
-    /* =========================
-       Navigation
-       ========================= */
-    .nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      transition: background 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
-    }
-    .nav.scrolled {
-      background: rgba(245, 239, 230, 0.95);
-      backdrop-filter: blur(8px);
-      padding: 1rem 2rem;
-      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-    }
-    .nav-logo {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      letter-spacing: 0.15em;
-      color: var(--white);
-      transition: color 0.4s ease;
-      position: relative;
-      z-index: 102;
-    }
-    .nav.scrolled .nav-logo { color: var(--ink); }
-    .nav.menu-open .nav-logo { color: var(--white); }
-    .nav-logo .ka, .nav-logo .ro { color: var(--terracotta); }
-    .nav.menu-open .nav-logo .ka,
-    .nav.menu-open .nav-logo .ro { color: #f4c9a8; }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-    .nav-links a {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--white);
-      font-weight: 400;
-      transition: color 0.4s ease;
-    }
-    .nav.scrolled .nav-links a { color: var(--ink); }
-    .nav-links a:hover { color: var(--terracotta); }
-
-    /* Burger */
-    .burger {
-      display: none;
-      width: 32px;
-      height: 32px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      z-index: 102;
-    }
-    .burger span {
-      position: absolute;
-      left: 4px;
-      right: 4px;
-      height: 1.5px;
-      background: var(--white);
-      transition: all 0.35s ease;
-    }
-    .nav.scrolled .burger span { background: var(--ink); }
-    .nav.menu-open .burger span { background: var(--white); }
-    .burger span:nth-child(1) { top: 10px; }
-    .burger span:nth-child(2) { top: 15.5px; }
-    .burger span:nth-child(3) { top: 21px; }
-    .nav.menu-open .burger span:nth-child(1) { top: 15.5px; transform: rotate(45deg); }
-    .nav.menu-open .burger span:nth-child(2) { opacity: 0; }
-    .nav.menu-open .burger span:nth-child(3) { top: 15.5px; transform: rotate(-45deg); }
-
-    @media (max-width: 768px) {
-      .nav { padding: 1.1rem 1.25rem; }
-      .nav.scrolled { padding: 0.9rem 1.25rem; }
-      .burger { display: block; }
-
-      /* Mobile-Menü: slidet von rechts rein, nutzt dvh gegen iOS-URL-Bar Bug */
-      .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        height: 100dvh;
-        background: var(--deep-green);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2.5rem;
-        margin: 0;
-        padding: 0;
-
-        transform: translateX(100%);
-        visibility: hidden;
-        transition: transform 0.4s ease, visibility 0s linear 0.4s;
-        z-index: 101;
-      }
-      .nav.menu-open .nav-links {
-        transform: translateX(0);
-        visibility: visible;
-        transition: transform 0.4s ease, visibility 0s linear 0s;
-      }
-      .nav-links a {
-        color: var(--white) !important;
-        font-size: 1.25rem;
-        letter-spacing: 0.2em;
-      }
-    }
-
-    /* =========================
-       Hero
-       ========================= */
-    .hero {
-      position: relative;
-      height: 100vh;
-      height: 100dvh;
-      min-height: 600px;
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      text-align: center;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('images/hero.jpg');
-      background-size: cover;
-      background-position: center;
-      background-color: #2f4a3a; /* Fallback wenn Bild fehlt */
-      animation: kenburns 20s ease-in-out infinite alternate;
-    }
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 100%);
-    }
-    @keyframes kenburns {
-      0%   { transform: scale(1) translate(0, 0); }
-      100% { transform: scale(1.12) translate(-1%, -1%); }
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      padding: 0 1.25rem;
-      opacity: 0;
-      animation: fadeUp 1.4s ease 0.3s forwards;
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-eyebrow {
-      font-size: 0.75rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      opacity: 0.9;
-    }
-    .hero h1 {
-      font-size: clamp(3rem, 9vw, 7rem);
-      color: var(--white);
-      font-weight: 300;
-      letter-spacing: 0.03em;
-      margin-bottom: 1rem;
-    }
-    .hero h1 .ka, .hero h1 .ro { color: #f4c9a8; font-style: italic; }
-    .hero-sub {
-      font-family: var(--serif);
-      font-size: clamp(1.05rem, 2vw, 1.5rem);
-      font-style: italic;
-      opacity: 0.95;
-      margin-bottom: 2rem;
-      max-width: 560px;
-      margin-left: auto; margin-right: auto;
-    }
-    .hero-meta {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-    }
-    .hero-meta span { margin: 0 0.75rem; }
-
-    .btn {
-      display: inline-block;
-      padding: 1rem 2.5rem;
-      background: var(--terracotta);
-      color: var(--white);
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      font-weight: 500;
-      border: none;
-      cursor: pointer;
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-    .btn:hover {
-      background: var(--terracotta-dark);
-      transform: translateY(-2px);
-    }
-    .btn-outline {
-      background: transparent;
-      border: 1px solid var(--white);
-      color: var(--white);
-    }
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--ink);
-    }
-
-    .scroll-hint {
-      position: absolute;
-      bottom: 2rem;
-      left: 50%;
-      transform: translateX(-50%);
-      color: var(--white);
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-      opacity: 0.7;
-      animation: bounce 2s ease-in-out infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translate(-50%, 0); }
-      50%      { transform: translate(-50%, 10px); }
-    }
-    @media (max-width: 500px) {
-      .scroll-hint { display: none; }
-    }
-
-    /* =========================
-       Story
-       ========================= */
-    .story {
-      background: var(--sand);
-      text-align: center;
-    }
-    .story-inner { max-width: 780px; margin: 0 auto; }
-    .story blockquote {
-      font-family: var(--serif);
-      font-size: clamp(1.2rem, 2.5vw, 1.9rem);
-      font-style: italic;
-      color: var(--ink);
-      line-height: 1.5;
-      margin-top: 2rem;
-    }
-    .signature {
-      font-family: var(--serif);
-      font-style: italic;
-      color: var(--ink-soft);
-      margin-top: 2rem;
-      letter-spacing: 0.05em;
-    }
-
-    /* =========================
-       Villa Features
-       ========================= */
-    .villa {
-      background: var(--white);
-      position: relative;
-    }
-    .villa-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      align-items: center;
-    }
-    @media (max-width: 900px) {
-      .villa-grid { grid-template-columns: 1fr; gap: 3rem; }
-    }
-    .villa-image {
-      position: relative;
-      overflow: hidden;
-      background: var(--sand-dark); /* Fallback */
-      min-height: 300px;
-    }
-    .villa-image img {
-      width: 100%;
-      transition: transform 1.5s ease;
-    }
-    .villa-image:hover img { transform: scale(1.05); }
-    .villa-image::before {
-      content: '';
-      position: absolute;
-      top: 20px; left: 20px; right: -20px; bottom: -20px;
-      border: 1px solid var(--terracotta);
-      z-index: -1;
-    }
-    @media (max-width: 900px) {
-      .villa-image::before { display: none; }
-    }
-    .features {
-      list-style: none;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem 2rem;
-      margin-top: 2.5rem;
-    }
-    @media (max-width: 500px) {
-      .features { grid-template-columns: 1fr; }
-    }
-    .feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-    }
-    .feature-icon {
-      width: 32px; height: 32px;
-      flex-shrink: 0;
-      color: var(--terracotta);
-    }
-    .feature-title {
-      font-family: var(--serif);
-      font-size: 1.15rem;
-      margin-bottom: 0.25rem;
-    }
-    .feature-text {
-      font-size: 0.9rem;
-      color: var(--ink-soft);
-    }
-
-    /* =========================
-       Experience
-       ========================= */
-    .experience {
-      background: var(--deep-green);
-      color: var(--white);
-    }
-    .experience .section-title { color: var(--white); }
-    .experience .eyebrow { color: #f4c9a8; }
-    .experience .section-lead { color: rgba(255,255,255,0.8); }
-    .exp-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      margin-top: 4rem;
-    }
-    @media (max-width: 900px) { .exp-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 3rem; } }
-    @media (max-width: 500px) { .exp-grid { grid-template-columns: 1fr; } }
-    .exp-card {
-      padding: 2.5rem 1.5rem;
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.15);
-      transition: background 0.4s ease, transform 0.4s ease;
-    }
-    .exp-card:hover {
-      background: rgba(255,255,255,0.05);
-      transform: translateY(-4px);
-    }
-    .exp-icon {
-      font-size: 2rem;
-      color: #f4c9a8;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-    .exp-card h3 {
-      color: var(--white);
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
-    }
-    .exp-card p {
-      font-size: 0.9rem;
-      color: rgba(255,255,255,0.75);
-      line-height: 1.6;
-    }
-
-    /* =========================
-       Gallery
-       ========================= */
-    .gallery {
-      background: var(--sand);
-    }
-    .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      grid-auto-rows: 220px;
-      gap: 12px;
-      margin-top: 4rem;
-    }
-    @media (max-width: 900px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; margin-top: 3rem; }
-    }
-    @media (max-width: 500px) {
-      .gallery-grid { grid-auto-rows: 150px; }
-    }
-    .gallery-item {
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      background: var(--sand-dark); /* Fallback wenn Bild fehlt */
-    }
-    .gallery-item img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      transition: transform 1s ease;
-    }
-    .gallery-item:hover img { transform: scale(1.08); }
-    .gallery-item::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: rgba(184, 85, 46, 0);
-      transition: background 0.4s ease;
-    }
-    .gallery-item:hover::after { background: rgba(184, 85, 46, 0.15); }
-    .g-wide  { grid-column: span 2; }
-    .g-tall  { grid-row: span 2; }
-    @media (max-width: 500px) {
-      .g-wide { grid-column: span 2; }
-      .g-tall { grid-row: span 1; }
-    }
-
-    /* =========================
-       Location
-       ========================= */
-    .location {
-      background: var(--white);
-      text-align: center;
-    }
-    .location-inner { max-width: 780px; margin: 0 auto 4rem; }
-    .location-facts {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-    @media (max-width: 700px) { .location-facts { grid-template-columns: 1fr; gap: 2rem; } }
-    .fact-number {
-      font-family: var(--serif);
-      font-size: 3rem;
-      color: var(--terracotta);
-      line-height: 1;
-      margin-bottom: 0.5rem;
-    }
-    .fact-label {
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    /* =========================
-       Rates
-       ========================= */
-    .rates {
-      background-image: url('images/pool-02.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
-      background-color: var(--deep-green); /* Fallback */
-      position: relative;
-      color: var(--white);
-      text-align: center;
-    }
-    @media (max-width: 900px) {
-      .rates { background-attachment: scroll; }
-    }
-    .rates::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: rgba(42, 38, 34, 0.55);
-    }
-    .rates .container { position: relative; z-index: 2; }
-    .rates .eyebrow { color: #f4c9a8; }
-    .rates .section-title { color: var(--white); }
-    .price {
-      font-family: var(--serif);
-      font-size: clamp(2.8rem, 8vw, 5.5rem);
-      font-weight: 300;
-      margin: 1.5rem 0 0.5rem;
-    }
-    .price .currency { font-size: 0.5em; vertical-align: super; opacity: 0.7; }
-    .price-note {
-      font-size: 0.85rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      opacity: 0.85;
-      margin-bottom: 2.5rem;
-    }
-    .rates-details {
-      max-width: 500px;
-      margin: 3rem auto 2.5rem;
-      font-style: italic;
-      font-family: var(--serif);
-      font-size: 1.05rem;
-      opacity: 0.9;
-    }
-
-    /* =========================
-       Testimonials
-       ========================= */
-    .testimonials {
-      background: var(--sand-dark);
-      text-align: center;
-    }
-    .testi-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 3rem;
-      margin-top: 4rem;
-    }
-    @media (max-width: 900px) { .testi-grid { grid-template-columns: 1fr; gap: 2rem; margin-top: 3rem; } }
-    .testi-card blockquote {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-style: italic;
-      color: var(--ink);
-      line-height: 1.6;
-      margin-bottom: 1.5rem;
-    }
-    .testi-card blockquote::before {
-      content: '"';
-      font-size: 3rem;
-      color: var(--terracotta);
-      line-height: 0;
-      vertical-align: -0.4em;
-      margin-right: 0.2em;
-    }
-    .testi-author {
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-    }
-
-    /* =========================
-       Contact
-       ========================= */
-    .contact {
-      background: var(--white);
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 5rem;
-      margin-top: 4rem;
-    }
-    @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 3rem; margin-top: 3rem; } }
-
-    .contact-form label {
-      display: block;
-      font-size: 0.7rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 0.5rem;
-      margin-top: 1.5rem;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 0.9rem 0;
-      border: none;
-      border-bottom: 1px solid #d5cbb8;
-      background: transparent;
-      font-family: inherit;
-      font-size: 1rem;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.3s ease;
-    }
-    .contact-form input:focus,
-    .contact-form textarea:focus {
-      border-color: var(--terracotta);
-    }
-    .contact-form textarea {
-      resize: vertical;
-      min-height: 100px;
-    }
-    .form-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-    @media (max-width: 500px) {
-      .form-row { grid-template-columns: 1fr; gap: 0; }
-    }
-    .contact-form button {
-      margin-top: 2.5rem;
-      width: 100%;
-    }
-
-    .contact-info h3 {
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
-    }
-    .contact-info p {
-      color: var(--ink-soft);
-      margin-bottom: 2rem;
-    }
-    .contact-list {
-      list-style: none;
-      margin-top: 2rem;
-    }
-    .contact-list li {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid #ebe1d1;
-    }
-    .contact-list li:last-child { border-bottom: none; }
-    .contact-list .icon {
-      width: 20px; height: 20px;
-      color: var(--terracotta);
-      flex-shrink: 0;
-    }
-    .contact-list .label {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      display: block;
-      margin-bottom: 0.2rem;
-    }
-    .contact-list .value {
-      color: var(--ink);
-      font-size: 0.95rem;
-      word-break: break-word;
-    }
-
-    /* =========================
-       Footer
-       ========================= */
-    .footer {
-      background: var(--ink);
-      color: rgba(255,255,255,0.6);
-      padding: 3rem 0 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
-    }
-    .footer-logo {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      color: var(--white);
-      letter-spacing: 0.15em;
-      margin-bottom: 0.5rem;
-    }
-    .footer-logo .ka, .footer-logo .ro { color: #f4c9a8; font-style: italic; }
-    .footer-tag {
-      font-family: var(--serif);
-      font-style: italic;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 2rem;
-    }
-    .footer-meta {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      color: rgba(255,255,255,0.4);
-    }
-
-    /* =========================
-       Fade-In beim Scrollen
-       ========================= */
-    .reveal {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 1s ease, transform 1s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* =========================
-       Bougainvillea-Blüten
-       ========================= */
-    .petals {
-      position: absolute; inset: 0;
-      pointer-events: none;
-      overflow: hidden;
-      z-index: 3;
-    }
-    .petal {
-      position: absolute;
-      top: -30px;
-      width: 14px; height: 14px;
-      background: radial-gradient(circle at 30% 30%, #e94572, #a5195b);
-      border-radius: 50% 0 50% 50%;
-      opacity: 0.75;
-      animation: fall linear infinite;
-    }
-    .petal:nth-child(1) { left: 8%;  animation-duration: 14s; animation-delay: 0s;    transform: rotate(15deg); }
-    .petal:nth-child(2) { left: 22%; animation-duration: 18s; animation-delay: -3s;   transform: rotate(45deg); }
-    .petal:nth-child(3) { left: 40%; animation-duration: 16s; animation-delay: -7s;   transform: rotate(-25deg); }
-    .petal:nth-child(4) { left: 58%; animation-duration: 20s; animation-delay: -2s;   transform: rotate(60deg); }
-    .petal:nth-child(5) { left: 72%; animation-duration: 15s; animation-delay: -10s;  transform: rotate(30deg); }
-    .petal:nth-child(6) { left: 88%; animation-duration: 17s; animation-delay: -5s;   transform: rotate(-15deg); }
-
-    @keyframes fall {
-      0%   { transform: translateY(0) rotate(0deg);     opacity: 0; }
-      10%  { opacity: 0.75; }
-      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
   <!-- ================= NAV ================= -->
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo">Villa <span class="ka">Ka</span><span class="ro">Ro</span></a>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false">
+    <button class="burger" id="burger" aria-label="Menü" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#story">Story</a></li>
-      <li><a href="#villa">Die Villa</a></li>
-      <li><a href="#experience">Erleben</a></li>
+      <li><a href="#tour">Villa Tour</a></li>
+      <li><a href="#daynight">Tag &amp; Nacht</a></li>
       <li><a href="#gallery">Galerie</a></li>
       <li><a href="#rates">Preise</a></li>
       <li><a href="#contact">Kontakt</a></li>
@@ -808,7 +30,10 @@
 
   <!-- ================= HERO ================= -->
   <header class="hero">
-    <div class="hero-bg"></div>
+    <picture class="hero-bg">
+      <source srcset="images/pool_relax_01.webp" type="image/webp">
+      <img src="images/pool_relax_01.jpg" alt="">
+    </picture>
     <div class="petals" aria-hidden="true">
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
@@ -836,53 +61,76 @@
         ein Ort, an dem wir zur Ruhe kommen — und den wir mit Menschen teilen möchten,
         die dasselbe suchen.
       </blockquote>
-      <p class="signature">— Ronny &amp; Katrin</p>
+      <p class="signature">— Katrin &amp; Ronny</p>
     </div>
   </section>
 
-  <!-- ================= VILLA ================= -->
-  <section class="section villa" id="villa">
+  <!-- ================= VILLA TOUR ================= -->
+  <section class="section tour" id="tour">
     <div class="container">
-      <div class="villa-grid">
-        <div class="villa-image reveal">
-          <img src="images/villa-01.jpg" alt="Villa KaRo — Außenansicht mit tropischem Garten" />
+      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem;">
+        <div class="eyebrow">Ein Rundgang</div>
+        <h2 class="section-title">Vier Räume, ein Gefühl.</h2>
+        <p class="section-lead" style="margin:0 auto;">
+          Alles unter einem Dach, alles für Sie.
+        </p>
+      </div>
+      <div class="tour-grid reveal">
+        <div class="tour-card">
+          <picture>
+            <source srcset="images/lounge_01.webp" type="image/webp">
+            <img src="images/lounge_01.jpg" alt="Wohnbereich" loading="lazy">
+          </picture>
+          <div class="tour-overlay">
+            <h3>Wohnbereich</h3>
+            <p>Offen zum Garten, ruhig und großzügig.</p>
+          </div>
         </div>
-        <div class="reveal">
-          <div class="eyebrow">Die Villa</div>
-          <h2 class="section-title">Intim, ruhig, ganz für Sie.</h2>
-          <p class="section-lead">
-            Ein Schlafzimmer, ein großer privater Pool, ein tropischer Garten in Terrakotta-Tönen —
-            und nur wenige Schritte zum Strand. Villa KaRo wurde für Paare gestaltet,
-            die Ruhe, Privatsphäre und das Gefühl echter Ankunft suchen.
-          </p>
-          <ul class="features">
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12h18M5 12V7a2 2 0 012-2h10a2 2 0 012 2v5M5 12v5a2 2 0 002 2h10a2 2 0 002-2v-5"/></svg>
-              <div><div class="feature-title">1 Schlafzimmer</div><div class="feature-text">Kingsize-Bett, klimatisiert</div></div>
-            </li>
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 18c2 0 2-1.5 4-1.5S8 18 10 18s2-1.5 4-1.5S16 18 18 18s2-1.5 4-1.5M2 13c2 0 2-1.5 4-1.5S8 13 10 13s2-1.5 4-1.5S16 13 18 13s2-1.5 4-1.5"/></svg>
-              <div><div class="feature-title">Privater Pool</div><div class="feature-text">Großzügig, umgeben von Grün</div></div>
-            </li>
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 3-5 8-5 8S7 10 7 7a5 5 0 015-5zM3 22h18"/></svg>
-              <div><div class="feature-title">Strandnähe</div><div class="feature-text">In wenigen Minuten am Meer</div></div>
-            </li>
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v20M4 8c0 6 8 14 8 14s8-8 8-14M4 8a4 4 0 018-4 4 4 0 018 4"/></svg>
-              <div><div class="feature-title">Tropischer Garten</div><div class="feature-text">Bougainvillea, Palmen, Ruhe</div></div>
-            </li>
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 6L9 17l-5-5"/></svg>
-              <div><div class="feature-title">Housekeeping</div><div class="feature-text">Täglich, diskret</div></div>
-            </li>
-            <li class="feature">
-              <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12a7 7 0 0114 0M8 15a4 4 0 018 0M12 18v.01"/></svg>
-              <div><div class="feature-title">WiFi &amp; AC</div><div class="feature-text">Schnell &amp; zuverlässig</div></div>
-            </li>
-          </ul>
+        <div class="tour-card">
+          <picture>
+            <source srcset="images/sleeping_01.webp" type="image/webp">
+            <img src="images/sleeping_01.jpg" alt="Schlafzimmer" loading="lazy">
+          </picture>
+          <div class="tour-overlay">
+            <h3>Schlafen</h3>
+            <p>Kingsize-Bett, klimatisiert, blickgeschützt.</p>
+          </div>
+        </div>
+        <div class="tour-card">
+          <picture>
+            <source srcset="images/kitchen_01.webp" type="image/webp">
+            <img src="images/kitchen_01.jpg" alt="Küche" loading="lazy">
+          </picture>
+          <div class="tour-overlay">
+            <h3>Küche</h3>
+            <p>Voll ausgestattet, für Ihre eigenen Rituale.</p>
+          </div>
+        </div>
+        <div class="tour-card">
+          <picture>
+            <source srcset="images/bath_01.webp" type="image/webp">
+            <img src="images/bath_01.jpg" alt="Bad" loading="lazy">
+          </picture>
+          <div class="tour-overlay">
+            <h3>Bad</h3>
+            <p>Elegant, offen, mit Blick ins Grüne.</p>
+          </div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- ================= DAY & NIGHT ================= -->
+  <section class="section daynight" id="daynight">
+    <div class="container">
+      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem;">
+        <div class="eyebrow">Ein Ort, zwei Stimmungen</div>
+        <h2 class="section-title">Tag &amp; Nacht.</h2>
+        <p class="section-lead" style="margin:0 auto;">
+          Berühren Sie eine Karte, um die Nacht zu sehen.
+        </p>
+      </div>
+      <div class="dn-grid reveal" id="dnGrid"><!-- via script.js --></div>
     </div>
   </section>
 
@@ -932,16 +180,7 @@
           Farben, Licht und Ruhe — hier ein Eindruck, wie Ihr Aufenthalt aussehen kann.
         </p>
       </div>
-      <div class="gallery-grid reveal">
-        <div class="gallery-item g-tall"><img src="images/pool-01.jpg" alt="Pool" /></div>
-        <div class="gallery-item"><img src="images/garden-01.jpg" alt="Garten" /></div>
-        <div class="gallery-item"><img src="images/villa-02.jpg" alt="Villa Außenansicht" /></div>
-        <div class="gallery-item g-wide"><img src="images/lounger-01.jpg" alt="Loungerbereich am Pool" /></div>
-        <div class="gallery-item"><img src="images/garden-02.jpg" alt="Bougainvillea" /></div>
-        <div class="gallery-item"><img src="images/path-01.jpg" alt="Gartenweg" /></div>
-        <div class="gallery-item g-wide"><img src="images/villa-01.jpg" alt="Villa mit Garten" /></div>
-        <div class="gallery-item"><img src="images/pool-02.jpg" alt="Pool und Gazebo" /></div>
-      </div>
+      <div class="gallery-grid reveal" id="galleryGrid"><!-- via script.js --></div>
     </div>
   </section>
 
@@ -957,18 +196,9 @@
         </p>
       </div>
       <div class="location-facts reveal">
-        <div>
-          <div class="fact-number">3</div>
-          <div class="fact-label">Minuten zum Strand</div>
-        </div>
-        <div>
-          <div class="fact-number">15</div>
-          <div class="fact-label">Minuten zum Menjangan-Riff</div>
-        </div>
-        <div>
-          <div class="fact-number">3h</div>
-          <div class="fact-label">Fahrt vom Flughafen Denpasar</div>
-        </div>
+        <div><div class="fact-number">3</div><div class="fact-label">Minuten zum Strand</div></div>
+        <div><div class="fact-number">15</div><div class="fact-label">Minuten zum Menjangan-Riff</div></div>
+        <div><div class="fact-number">3h</div><div class="fact-label">Fahrt vom Flughafen Denpasar</div></div>
       </div>
     </div>
   </section>
@@ -978,10 +208,10 @@
     <div class="container reveal">
       <div class="eyebrow">Preise</div>
       <h2 class="section-title">Bleiben Sie eine Weile.</h2>
-      <div class="price"><span class="currency">€</span>100<span style="font-size:0.35em;opacity:0.7;"> / Nacht</span></div>
+      <div class="price"><span class="currency">€</span>100<span class="per-night"> / Nacht</span></div>
       <div class="price-note">ab · inkl. Housekeeping &amp; WiFi</div>
       <p class="rates-details">
-        Mindestaufenthalt 3 Nächte. Saisonale Preise auf Anfrage.<br />
+        Mindestaufenthalt 3 Nächte. Saisonale Preise auf Anfrage.<br>
         Wir freuen uns, Ihnen ein persönliches Angebot zu machen.
       </p>
       <a href="#contact" class="btn">Verfügbarkeit anfragen</a>
@@ -1001,7 +231,7 @@
           <div class="testi-author">Anna &amp; Michael · Berlin</div>
         </div>
         <div class="testi-card reveal">
-          <blockquote>Ronny und Katrin haben einen Ort mit Seele geschaffen. Der Garten allein war die Reise wert.</blockquote>
+          <blockquote>Katrin und Ronny haben einen Ort mit Seele geschaffen. Der Garten allein war die Reise wert.</blockquote>
           <div class="testi-author">Julia &amp; Tom · Hamburg</div>
         </div>
         <div class="testi-card reveal">
@@ -1025,59 +255,42 @@
       <div class="contact-grid">
         <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Danke! Dies ist eine Demo-Seite — Ihre Anfrage würde hier übermittelt werden.');">
           <label for="name">Name</label>
-          <input type="text" id="name" name="name" required />
-
+          <input type="text" id="name" name="name" required>
           <label for="email">E-Mail</label>
-          <input type="email" id="email" name="email" required />
-
+          <input type="email" id="email" name="email" required>
           <div class="form-row">
             <div>
               <label for="from">Anreise</label>
-              <input type="date" id="from" name="from" />
+              <input type="date" id="from" name="from">
             </div>
             <div>
               <label for="to">Abreise</label>
-              <input type="date" id="to" name="to" />
+              <input type="date" id="to" name="to">
             </div>
           </div>
-
           <label for="msg">Nachricht</label>
           <textarea id="msg" name="msg" placeholder="Erzählen Sie uns von Ihrer Reise…"></textarea>
-
           <button type="submit" class="btn">Anfrage senden</button>
         </form>
-
         <div class="contact-info reveal">
-          <h3>Ronny &amp; Katrin</h3>
+          <h3>Katrin &amp; Ronny</h3>
           <p>Gastgeber von Villa KaRo. Wir freuen uns, Sie in Pemuteran begrüßen zu dürfen.</p>
           <ul class="contact-list">
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z M4 4l8 8 8-8"/></svg>
-              <div>
-                <span class="label">E-Mail</span>
-                <span class="value">hello@villa-karo.com</span>
-              </div>
+              <div><span class="label">E-Mail</span><span class="value">hello@villa-karo.com</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92V21a1 1 0 01-1.11 1A19 19 0 012 4.11 1 1 0 013 3h4.09a1 1 0 011 .75l1 4a1 1 0 01-.29 1L7 10.5a16 16 0 006.5 6.5l1.75-1.79a1 1 0 011-.29l4 1a1 1 0 01.75 1z"/></svg>
-              <div>
-                <span class="label">Telefon</span>
-                <span class="value">+49 30 12345678</span>
-              </div>
+              <div><span class="label">Telefon</span><span class="value">+49 30 12345678</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-              <div>
-                <span class="label">WhatsApp</span>
-                <span class="value">+62 812 3456 7890</span>
-              </div>
+              <div><span class="label">WhatsApp</span><span class="value">+62 812 3456 7890</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 3-5 8-5 8S7 10 7 7a5 5 0 015-5z M9 21h6"/></svg>
-              <div>
-                <span class="label">Adresse</span>
-                <span class="value">Pemuteran, Buleleng, Bali</span>
-              </div>
+              <div><span class="label">Adresse</span><span class="value">Pemuteran, Buleleng, Bali</span></div>
             </li>
           </ul>
         </div>
@@ -1091,58 +304,11 @@
       <div class="footer-logo">Villa <span class="ka">Ka</span><span class="ro">Ro</span></div>
       <div class="footer-tag">— Ein privater Rückzugsort in Pemuteran, Bali —</div>
       <div class="footer-meta">
-        © 2026 Villa KaRo · Ronny Kluge &amp; Katrin Landgraf-Kluge
+        © 2026 Villa KaRo · Katrin Landgraf-Kluge &amp; Ronny Kluge
       </div>
     </div>
   </footer>
 
-  <script>
-    const nav = document.getElementById('nav');
-    const burger = document.getElementById('burger');
-    const navLinks = document.getElementById('navLinks');
-
-    // Scroll: Hintergrund einblenden
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 80) nav.classList.add('scrolled');
-      else nav.classList.remove('scrolled');
-    });
-
-    // Burger toggle
-    const toggleMenu = (open) => {
-      const isOpen = open ?? !nav.classList.contains('menu-open');
-      nav.classList.toggle('menu-open', isOpen);
-      burger.setAttribute('aria-expanded', isOpen);
-      document.body.style.overflow = isOpen ? 'hidden' : '';
-    };
-    burger.addEventListener('click', () => toggleMenu());
-
-    // Menü nach Klick auf Link schließen
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => toggleMenu(false));
-    });
-
-    // ESC schließt Menü
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape' && nav.classList.contains('menu-open')) toggleMenu(false);
-    });
-
-    // Menü zurücksetzen wenn Viewport auf Desktop wechselt
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768 && nav.classList.contains('menu-open')) toggleMenu(false);
-    });
-
-    // Fade-In beim Scrollen
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
-
+  <script src="assets/script.js"></script>
 </body>
 </html>

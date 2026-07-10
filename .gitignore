@@ -1,0 +1,6 @@
+images_original/
+__pycache__/
+*.pyc
+.vscode/
+.DS_Store
+Thumbs.db
