@@ -232,10 +232,26 @@ body.villa-switching #villaDetailEyebrow {
 .petal:nth-child(5) { left: 72%; animation-duration: 15s; animation-delay: -10s; }
 .petal:nth-child(6) { left: 88%; animation-duration: 17s; animation-delay: -5s;  }
 @keyframes fall {
-  0%   { transform: translate(0, 0)     rotateY(0deg)   rotate(-15deg); opacity: 0; }
-  10%  { opacity: 0.8; }
-  50%  { transform: translate(15px, 55vh) rotateY(360deg) rotate(5deg); }
-  100% { transform: translate(-10px, 110vh) rotateY(720deg) rotate(-10deg); opacity: 0; }
+  0%   { transform: translate(0,       0)    rotateY(0deg)   rotate(-15deg); opacity: 0; }
+  8%   { opacity: 0.8; }
+
+  /* Kante zur Kamera → schneller Abstieg */
+  15%  { transform: translate(25px,   20vh)  rotateY(90deg)  rotate(-5deg);  }
+
+  /* Fläche flach zur Kamera → verlangsamt, driftet seitlich */
+  30%  { transform: translate(30px,   25vh)  rotateY(180deg) rotate(10deg);  }
+
+  /* Kippt zurück → beschleunigt */
+  45%  { transform: translate(0,      48vh)  rotateY(270deg) rotate(-5deg);  }
+
+  /* Wieder flach → langsam, driftet in andere Richtung */
+  60%  { transform: translate(-30px,  55vh)  rotateY(360deg) rotate(15deg);  }
+
+  /* Kante → schneller Endabstieg */
+  75%  { transform: translate(-15px,  78vh)  rotateY(450deg) rotate(-10deg); }
+
+  95%  { opacity: 0.8; }
+  100% { transform: translate(20px,   110vh) rotateY(720deg) rotate(0deg);   opacity: 0; }
 }
 
 /* -- WILLKOMMEN --------------------------------------------------------- */
