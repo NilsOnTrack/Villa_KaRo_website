@@ -1,5 +1,5 @@
 /* ==========================================================================
-   VILLA KARO — CONTENT (V6)
+   VILLA KARO — CONTENT (V7)
    Alles was Ronny/Mudi ändern könnten liegt hier. HTML nicht anfassen nötig.
    ========================================================================== */
 
@@ -114,12 +114,12 @@ const CONTENT = {
       villaDetail: {
         eyebrow: 'Ein Rundgang',
         title:   'Vier Räume, ein Gefühl.',
-        lead:    'Alles unter einem Dach, alles für Sie.',
+        lead:    'Klassische balinesische Bauweise: Wohnbereich, Küche und Bad sind teilüberdacht — Innenraum und Garten fließen ineinander. Nur das Schlafzimmer im Zentrum ist geschlossen und klimatisiert.',
         rooms: [
-          { title: 'Wohnbereich', desc: 'Offen zum Garten, ruhig und großzügig.' },
-          { title: 'Schlafen',    desc: 'Kingsize-Bett, klimatisiert, blickgeschützt.' },
-          { title: 'Küche',       desc: 'Voll ausgestattet, für Ihre eigenen Rituale.' },
-          { title: 'Bad',         desc: 'Elegant, offen, mit Blick ins Grüne.' },
+          { title: 'Wohnbereich', desc: 'Überdachte Lounge, offen zum Garten — der Übergang zwischen Innen und Außen.' },
+          { title: 'Schlafen',    desc: 'Zentral im Haus, klimatisiert, blickgeschützt — Ihr ruhiger Kern.' },
+          { title: 'Küche',       desc: 'Teilüberdacht im typischen Bali-Stil — kochen mit dem Garten vor der Nase.' },
+          { title: 'Bad',         desc: 'Teilüberdacht, offen ins Grüne — Duschen unter freiem Himmel.' },
         ],
       },
       dayNight: {
@@ -166,7 +166,7 @@ const CONTENT = {
         title:   'Was Gäste erzählen',
         q1: 'Die perfekte Mischung aus Luxus und Ruhe. Wir sind erholt zurückgekommen wie schon lange nicht mehr.',
         a1: 'Anna & Michael · Berlin',
-        q2: 'Ein Ort mit Seele. Der Garten allein war die Reise wert — und Mudi ein wunderbarer Gastgeber.',
+        q2: 'Ein Ort mit Seele. Der Garten allein war die Reise wert — und der Gastgeber ein wunderbarer.',
         a2: 'Julia & Tom · Hamburg',
         q3: 'Wir kommen wieder. So einfach ist das. Pemuteran ist ein Geheimnis, das man kennen sollte.',
         a3: 'Sophie & David · Zürich',
@@ -174,14 +174,14 @@ const CONTENT = {
       contact: {
         eyebrow: 'Kontakt',
         title:   'Schreiben Sie uns.',
-        lead:    'Anfrage, Verfügbarkeit, Wünsche — Mudi antwortet persönlich, meist innerhalb eines Tages.',
+        lead:    'Anfrage, Verfügbarkeit, Wünsche — Mr. Gede Mudiarta antwortet persönlich, meist innerhalb eines Tages.',
         name: 'Name', email: 'E-Mail', arrival: 'Anreise', departure: 'Abreise',
         villaField: 'Villa', messageLabel: 'Nachricht',
         messagePlaceholder: 'Erzählen Sie uns von Ihrer Reise…',
         submit: 'Anfrage senden',
         eitherOption: 'Egal / Beraten Sie mich',
         bothOption:   'Beide (Familien / Freunde)',
-        role: 'Ihr Ansprechpartner vor Ort · genannt „Mudi"',
+        role: 'Ihr Ansprechpartner vor Ort',
         emailLabel: 'E-Mail', phoneLabel: 'Telefon', addressLabel: 'Adresse',
         formSuccess: 'Danke! Dies ist eine Demo-Seite — Ihre Anfrage würde hier übermittelt werden.',
       },
@@ -218,12 +218,12 @@ const CONTENT = {
       villaDetail: {
         eyebrow: 'A tour',
         title:   'Four rooms, one feeling.',
-        lead:    'All under one roof, all for you.',
+        lead:    'Classic Balinese architecture: living area, kitchen and bathroom are partially open-air — interior and garden flow into each other. Only the bedroom at the centre is fully enclosed and air-conditioned.',
         rooms: [
-          { title: 'Living area', desc: 'Opens to the garden — calm and spacious.' },
-          { title: 'Bedroom',     desc: 'Kingsize bed, air-conditioned, private.' },
-          { title: 'Kitchen',     desc: 'Fully equipped, for your own rituals.' },
-          { title: 'Bathroom',    desc: 'Elegant, open, with a view into the green.' },
+          { title: 'Living area', desc: 'Covered lounge, open to the garden — where inside meets outside.' },
+          { title: 'Bedroom',     desc: 'At the heart of the house, air-conditioned, private — your quiet core.' },
+          { title: 'Kitchen',     desc: 'Partially open-air in typical Balinese style — cook with the garden right in front of you.' },
+          { title: 'Bathroom',    desc: 'Partially open-air, facing the greenery — shower under an open sky.' },
         ],
       },
       dayNight: {
@@ -270,7 +270,7 @@ const CONTENT = {
         title:   'Guest voices',
         q1: 'The perfect mix of luxury and calm. We came back more rested than we\'ve been in years.',
         a1: 'Anna & Michael · Berlin',
-        q2: 'A place with soul. The garden alone was worth the trip — and Mudi a wonderful host.',
+        q2: 'A place with soul. The garden alone was worth the trip — and a wonderful host to top it off.',
         a2: 'Julia & Tom · Hamburg',
         q3: 'We\'ll be back. Simple as that. Pemuteran is a secret worth knowing.',
         a3: 'Sophie & David · Zurich',
@@ -278,14 +278,14 @@ const CONTENT = {
       contact: {
         eyebrow: 'Contact',
         title:   'Get in touch.',
-        lead:    'Enquiries, availability, wishes — Mudi replies personally, usually within a day.',
+        lead:    'Enquiries, availability, wishes — Mr. Gede Mudiarta replies personally, usually within a day.',
         name: 'Name', email: 'Email', arrival: 'Arrival', departure: 'Departure',
         villaField: 'Villa', messageLabel: 'Message',
         messagePlaceholder: 'Tell us about your trip…',
         submit: 'Send enquiry',
         eitherOption: 'No preference / Advise me',
         bothOption:   'Both (families / friends)',
-        role: 'Your host on site · called "Mudi"',
+        role: 'Your host on site',
         emailLabel: 'Email', phoneLabel: 'Phone', addressLabel: 'Address',
         formSuccess: 'Thank you! This is a demo page — your enquiry would be submitted here.',
       },
@@ -297,7 +297,7 @@ const CONTENT = {
     },
 
     // ---------- INDONESIAN (fällt automatisch auf EN zurück) -----------
-    // Sobald Mudi echte Übersetzungen liefert, hier den Zweig füllen.
+    // Sobald echte Übersetzungen vorliegen, hier den Zweig füllen.
     id: {
       // vorerst leer — Fallback auf en
     },
