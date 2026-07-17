@@ -3,294 +3,296 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Villa KaRo · Ihr privates Refugium in Pemuteran, Bali</title>
-  <meta name="description" content="Villa KaRo — eine private Poolvilla mit tropischem Garten in Pemuteran, Bali. Ein Schlafzimmer, unmittelbare Strandnähe, Ruhe und Luxus für Paare.">
+  <title>Villa KaRo · Zwei private Poolvillen in Pemuteran, Bali</title>
+  <meta name="description" content="Villa KaRo 1 & 2 — zwei Zwillingsvillen in Pemuteran, Bali. Direkt nebeneinander, jede mit eigenem Pool und tropischem Garten.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
 </head>
 <body>
 
-  <!-- ================= NAV ================= -->
+  <!-- NAV -->
   <nav class="nav" id="nav">
-    <a href="#" class="nav-logo">Villa <span class="ka">Ka</span><span class="ro">Ro</span></a>
+    <a href="#" class="nav-logo-wrap">
+      <img src="images/logo.png" alt="Villa KaRo" class="nav-logo-img">
+    </a>
     <button class="burger" id="burger" aria-label="Menü" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#story">Story</a></li>
-      <li><a href="#tour">Villa Tour</a></li>
-      <li><a href="#daynight">Tag &amp; Nacht</a></li>
-      <li><a href="#gallery">Galerie</a></li>
-      <li><a href="#rates">Preise</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a href="#willkommen" data-i18n="nav.welcome">Willkommen</a></li>
+      <li><a href="#villas" data-i18n="nav.villen">Die Villen</a></li>
+      <li><a href="#daynight" data-i18n="nav.dayNight">Tag &amp; Nacht</a></li>
+      <li><a href="#gallery" data-i18n="nav.galerie">Galerie</a></li>
+      <li><a href="#rates" data-i18n="nav.preise">Preise</a></li>
+      <li><a href="#contact" data-i18n="nav.kontakt">Kontakt</a></li>
     </ul>
+    <div class="lang-switcher" id="langSwitcher">
+      <button data-lang="de" class="active">DE</button>
+      <button data-lang="en">EN</button>
+      <button data-lang="id">ID</button>
+    </div>
   </nav>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero">
-    <picture class="hero-bg">
-      <source srcset="images/pool_relax_01.webp" type="image/webp">
-      <img src="images/pool_relax_01.jpg" alt="">
+  <!-- FLOATING VILLA TOGGLE -->
+  <div class="villa-toggle" id="villaToggle" role="tablist">
+    <button data-villa="1" class="active" role="tab" aria-selected="true">Villa 1</button>
+    <button data-villa="2" role="tab" aria-selected="false">Villa 2</button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" id="hero">
+    <picture class="hero-bg" id="heroBg">
+      <source id="heroBgSource" srcset="images/pool_relax_01.webp" type="image/webp">
+      <img id="heroBgImg" src="images/pool_relax_01.jpg" alt="">
     </picture>
     <div class="petals" aria-hidden="true">
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
       <span class="petal"></span><span class="petal"></span><span class="petal"></span>
     </div>
+    <img src="images/logo.png" alt="" class="hero-watermark" aria-hidden="true">
     <div class="hero-content">
-      <div class="hero-eyebrow">Pemuteran · Bali</div>
-      <h1>Villa <span class="ka">Ka</span><span class="ro">Ro</span></h1>
-      <p class="hero-sub">Ein privates Refugium zwischen tropischem Garten und stillem Meer.</p>
-      <div class="hero-meta">
-        <span>1 Schlafzimmer</span>·<span>Privater Pool</span>·<span>Strandnähe</span>
-      </div>
-      <a href="#contact" class="btn btn-outline">Anfrage senden</a>
+      <div class="hero-eyebrow" data-i18n="hero.eyebrow">Pemuteran · Bali</div>
+      <h1 id="heroTitle" data-i18n="hero.title.villa1">Villa KaRo 1</h1>
+      <p class="hero-sub" data-i18n="hero.sub">Zwei private Poolvillen. Ein stiller Ort. Ihr Bali.</p>
+      <a href="#villas" class="btn btn-outline" data-i18n="hero.cta">Villen entdecken</a>
     </div>
-    <div class="scroll-hint">Scrollen</div>
+    <div class="scroll-hint" data-i18n="hero.scroll">Scrollen</div>
   </header>
 
-  <!-- ================= STORY ================= -->
-  <section class="section story" id="story">
-    <div class="container story-inner reveal">
-      <div class="eyebrow">Willkommen</div>
-      <h2 class="section-title">Unser kleines Stück Paradies</h2>
-      <blockquote>
-        Vor vielen Jahren haben wir Bali lieben gelernt — und mit den Jahren wurde aus der ersten Reise ein Traum,
-        der Wurzeln schlug. Villa KaRo ist dieser Traum, der Wirklichkeit wurde:
-        ein Ort, an dem wir zur Ruhe kommen — und den wir mit Menschen teilen möchten,
-        die dasselbe suchen.
-      </blockquote>
-      <p class="signature">— Katrin &amp; Ronny</p>
+  <!-- WILLKOMMEN -->
+  <section class="section willkommen" id="willkommen">
+    <div class="container willkommen-inner reveal">
+      <div class="eyebrow" data-i18n="willkommen.eyebrow">Willkommen</div>
+      <h2 class="section-title" data-i18n="willkommen.title">Zwei Häuser, ein Ort.</h2>
+      <p class="willkommen-lead" data-i18n="willkommen.lead">Zwischen Bergen und Meer, weit weg vom Trubel des Südens, liegen zwei Villen dicht beieinander: Villa KaRo 1 und Villa KaRo 2. Zwei eigene Grundstücke, zwei private Pools, zwei Rückzugsorte — für Paare, die ein anderes Bali suchen.</p>
     </div>
   </section>
 
-  <!-- ================= VILLA TOUR ================= -->
-  <section class="section tour" id="tour">
+  <!-- VILLA AUSWAHL -->
+  <section class="section villas" id="villas">
     <div class="container">
-      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem;">
-        <div class="eyebrow">Ein Rundgang</div>
-        <h2 class="section-title">Vier Räume, ein Gefühl.</h2>
-        <p class="section-lead" style="margin:0 auto;">
-          Alles unter einem Dach, alles für Sie.
-        </p>
+      <div class="reveal centered-block">
+        <div class="eyebrow" data-i18n="villaAuswahl.eyebrow">Die Villen</div>
+        <h2 class="section-title" data-i18n="villaAuswahl.title">Wählen Sie Ihr Refugium.</h2>
+        <p class="section-lead" data-i18n="villaAuswahl.intro">Villa KaRo 1 und 2 sind Zwillingsvillen — gleiches Konzept, gleicher Standort, gleiche Ausstattung. Der einzige Unterschied: Villa 1 ist eine Idee grösser.</p>
       </div>
-      <div class="tour-grid reveal">
-        <div class="tour-card">
+      <div class="villa-choice-grid reveal">
+        <a href="#villa-detail" class="villa-choice-card" data-villa="1">
           <picture>
-            <source srcset="images/lounge_01.webp" type="image/webp">
-            <img src="images/lounge_01.jpg" alt="Wohnbereich" loading="lazy">
+            <source id="villa1CoverSrc" srcset="images/pool_relax_01.webp" type="image/webp">
+            <img id="villa1CoverImg" src="images/pool_relax_01.jpg" alt="Villa KaRo 1" loading="lazy">
           </picture>
-          <div class="tour-overlay">
-            <h3>Wohnbereich</h3>
-            <p>Offen zum Garten, ruhig und großzügig.</p>
+          <div class="villa-choice-body">
+            <div class="villa-choice-eyebrow">Villa KaRo 1</div>
+            <div class="villa-choice-features" data-i18n="villaAuswahl.features">1 Schlafzimmer · Pool · Garten</div>
+            <div class="villa-choice-rate" id="villa1Rate">IDR 3.000.000</div>
+            <div class="villa-choice-rate-sub" id="villa1RateSub">≈ €175 · <span data-i18n="villaAuswahl.perNight">pro Nacht</span></div>
+            <div class="villa-choice-cta" data-i18n="villaAuswahl.cta">Details ansehen →</div>
           </div>
-        </div>
-        <div class="tour-card">
+        </a>
+        <a href="#villa-detail" class="villa-choice-card" data-villa="2">
           <picture>
-            <source srcset="images/sleeping_01.webp" type="image/webp">
-            <img src="images/sleeping_01.jpg" alt="Schlafzimmer" loading="lazy">
+            <source id="villa2CoverSrc" srcset="images/v2_pool_01.webp" type="image/webp">
+            <img id="villa2CoverImg" src="images/v2_pool_01.jpg" alt="Villa KaRo 2" loading="lazy">
           </picture>
-          <div class="tour-overlay">
-            <h3>Schlafen</h3>
-            <p>Kingsize-Bett, klimatisiert, blickgeschützt.</p>
+          <div class="villa-choice-body">
+            <div class="villa-choice-eyebrow">Villa KaRo 2</div>
+            <div class="villa-choice-features" data-i18n="villaAuswahl.features">1 Schlafzimmer · Pool · Garten</div>
+            <div class="villa-choice-rate" id="villa2Rate">IDR 2.500.000</div>
+            <div class="villa-choice-rate-sub" id="villa2RateSub">≈ €145 · <span data-i18n="villaAuswahl.perNight">pro Nacht</span></div>
+            <div class="villa-choice-cta" data-i18n="villaAuswahl.cta">Details ansehen →</div>
           </div>
-        </div>
-        <div class="tour-card">
-          <picture>
-            <source srcset="images/kitchen_01.webp" type="image/webp">
-            <img src="images/kitchen_01.jpg" alt="Küche" loading="lazy">
-          </picture>
-          <div class="tour-overlay">
-            <h3>Küche</h3>
-            <p>Voll ausgestattet, für Ihre eigenen Rituale.</p>
-          </div>
-        </div>
-        <div class="tour-card">
-          <picture>
-            <source srcset="images/bath_01.webp" type="image/webp">
-            <img src="images/bath_01.jpg" alt="Bad" loading="lazy">
-          </picture>
-          <div class="tour-overlay">
-            <h3>Bad</h3>
-            <p>Elegant, offen, mit Blick ins Grüne.</p>
-          </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ================= DAY & NIGHT ================= -->
+  <!-- VILLA DETAIL (Toggle-reaktiv) -->
+  <section class="section villa-detail" id="villa-detail">
+    <div class="container">
+      <div class="reveal centered-block">
+        <div class="eyebrow" id="villaDetailEyebrow">Villa KaRo 1 · Ein Rundgang</div>
+        <h2 class="section-title" data-i18n="villaDetail.title">Vier Räume, ein Gefühl.</h2>
+        <p class="section-lead" data-i18n="villaDetail.lead">Alles unter einem Dach, alles für Sie.</p>
+      </div>
+      <div class="tour-grid reveal" id="tourGrid"></div>
+    </div>
+  </section>
+
+  <!-- TAG & NACHT (Toggle-reaktiv) -->
   <section class="section daynight" id="daynight">
     <div class="container">
-      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto 4rem;">
-        <div class="eyebrow">Ein Ort, zwei Stimmungen</div>
-        <h2 class="section-title">Tag &amp; Nacht.</h2>
-        <p class="section-lead" style="margin:0 auto;">
-          Berühren Sie eine Karte, um die Nacht zu sehen.
-        </p>
+      <div class="reveal centered-block">
+        <div class="eyebrow" data-i18n="dayNight.eyebrow">Ein Ort, zwei Stimmungen</div>
+        <h2 class="section-title" data-i18n="dayNight.title">Tag &amp; Nacht.</h2>
+        <p class="section-lead" data-i18n="dayNight.lead">Berühren Sie eine Karte, um die Nacht zu sehen.</p>
       </div>
-      <div class="dn-grid reveal" id="dnGrid"><!-- via script.js --></div>
+      <div class="dn-grid reveal" id="dnGrid"></div>
     </div>
   </section>
 
-  <!-- ================= EXPERIENCE ================= -->
+  <!-- ERLEBEN -->
   <section class="section experience" id="experience">
     <div class="container">
-      <div class="reveal" style="max-width:640px;">
-        <div class="eyebrow">Erleben</div>
-        <h2 class="section-title">Bali, wie Sie es sich erträumt haben.</h2>
-        <p class="section-lead">
-          Pemuteran ist Balis stiller Norden — abseits vom Trubel, nahe an einigen der schönsten
-          Riffe und Rituale der Insel.
-        </p>
+      <div class="reveal">
+        <div class="eyebrow" data-i18n="erleben.eyebrow">Erleben</div>
+        <h2 class="section-title" data-i18n="erleben.title">Bali, wie Sie es sich erträumt haben.</h2>
+        <p class="section-lead" data-i18n="erleben.lead">Pemuteran ist Balis stiller Norden — abseits vom Trubel, nahe an einigen der schönsten Riffe und Rituale der Insel.</p>
       </div>
       <div class="exp-grid">
         <div class="exp-card reveal">
           <span class="exp-icon">☀︎</span>
-          <h3>Yoga im Garten</h3>
-          <p>Beginnen Sie den Tag mit dem Klang der Vögel — Ihre Matte ist schon ausgerollt.</p>
+          <h3 data-i18n="erleben.yoga.title">Yoga im Garten</h3>
+          <p data-i18n="erleben.yoga.desc">Beginnen Sie den Tag mit dem Klang der Vögel — Ihre Matte ist schon ausgerollt.</p>
         </div>
         <div class="exp-card reveal">
           <span class="exp-icon">～</span>
-          <h3>Menjangan Reef</h3>
-          <p>Schnorcheln und Tauchen an einem der intaktesten Riffe Balis, nur eine Bootsfahrt entfernt.</p>
+          <h3 data-i18n="erleben.reef.title">Menjangan Reef</h3>
+          <p data-i18n="erleben.reef.desc">Schnorcheln und Tauchen an einem der intaktesten Riffe Balis, nur eine Bootsfahrt entfernt.</p>
         </div>
         <div class="exp-card reveal">
           <span class="exp-icon">✦</span>
-          <h3>Sonnenuntergänge</h3>
-          <p>Der Strand liegt vor der Tür — mit einem Glas Wein in der Hand die Farben wechseln sehen.</p>
+          <h3 data-i18n="erleben.sunset.title">Sonnenuntergänge</h3>
+          <p data-i18n="erleben.sunset.desc">Der Strand liegt vor der Tür — mit einem Glas Wein in der Hand die Farben wechseln sehen.</p>
         </div>
         <div class="exp-card reveal">
           <span class="exp-icon">❋</span>
-          <h3>In-Villa Spa</h3>
-          <p>Balinesische Massage direkt an Ihrem Pool — auf Wunsch arrangieren wir alles.</p>
+          <h3 data-i18n="erleben.spa.title">In-Villa Spa</h3>
+          <p data-i18n="erleben.spa.desc">Balinesische Massage direkt an Ihrem Pool — auf Wunsch arrangieren wir alles.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= GALLERY ================= -->
+  <!-- GALERIE (Toggle-reaktiv) -->
   <section class="section gallery" id="gallery">
     <div class="container">
-      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
-        <div class="eyebrow">Galerie</div>
-        <h2 class="section-title">Ein Blick auf Villa KaRo</h2>
-        <p class="section-lead" style="margin:0 auto;">
-          Farben, Licht und Ruhe — hier ein Eindruck, wie Ihr Aufenthalt aussehen kann.
-        </p>
+      <div class="reveal centered-block">
+        <div class="eyebrow" data-i18n="galerie.eyebrow">Galerie</div>
+        <h2 class="section-title" id="galleryTitle">Villa KaRo 1</h2>
+        <p class="section-lead" data-i18n="galerie.lead">Farben, Licht und Ruhe — hier ein Eindruck, wie Ihr Aufenthalt aussehen kann.</p>
       </div>
-      <div class="gallery-grid reveal" id="galleryGrid"><!-- via script.js --></div>
+      <div class="gallery-grid reveal" id="galleryGrid"></div>
     </div>
   </section>
 
-  <!-- ================= LOCATION ================= -->
+  <!-- LOCATION -->
   <section class="section location" id="location">
     <div class="container">
       <div class="location-inner reveal">
-        <div class="eyebrow">Standort</div>
-        <h2 class="section-title">Pemuteran — Balis ruhiger Norden</h2>
-        <p class="section-lead" style="margin:0 auto;">
-          Eingebettet zwischen Bergen und Meer, weit weg vom Trubel des Südens.
-          Ein Ort für alle, die ein anderes Bali suchen: langsamer, ehrlicher, tiefer.
-        </p>
+        <div class="eyebrow" data-i18n="location.eyebrow">Standort</div>
+        <h2 class="section-title" data-i18n="location.title">Pemuteran — Balis ruhiger Norden</h2>
+        <p class="section-lead" data-i18n="location.lead">Eingebettet zwischen Bergen und Meer, weit weg vom Trubel des Südens. Ein Ort für alle, die ein anderes Bali suchen: langsamer, ehrlicher, tiefer.</p>
       </div>
       <div class="location-facts reveal">
-        <div><div class="fact-number">3</div><div class="fact-label">Minuten zum Strand</div></div>
-        <div><div class="fact-number">15</div><div class="fact-label">Minuten zum Menjangan-Riff</div></div>
-        <div><div class="fact-number">3h</div><div class="fact-label">Fahrt vom Flughafen Denpasar</div></div>
+        <div><div class="fact-number">3</div><div class="fact-label" data-i18n="location.fact1">Minuten zum Strand</div></div>
+        <div><div class="fact-number">15</div><div class="fact-label" data-i18n="location.fact2">Minuten zum Menjangan-Riff</div></div>
+        <div><div class="fact-number">3h</div><div class="fact-label" data-i18n="location.fact3">Fahrt vom Flughafen Denpasar</div></div>
       </div>
     </div>
   </section>
 
-  <!-- ================= RATES ================= -->
+  <!-- PREISE (Toggle-reaktiv) -->
   <section class="section rates" id="rates">
-    <div class="container reveal">
-      <div class="eyebrow">Preise</div>
-      <h2 class="section-title">Bleiben Sie eine Weile.</h2>
-      <div class="price"><span class="currency">€</span>100<span class="per-night"> / Nacht</span></div>
-      <div class="price-note">ab · inkl. Housekeeping &amp; WiFi</div>
-      <p class="rates-details">
-        Mindestaufenthalt 3 Nächte. Saisonale Preise auf Anfrage.<br>
-        Wir freuen uns, Ihnen ein persönliches Angebot zu machen.
-      </p>
-      <a href="#contact" class="btn">Verfügbarkeit anfragen</a>
+    <div class="container reveal centered-block">
+      <div class="eyebrow" data-i18n="preise.eyebrow">Preise</div>
+      <h2 class="section-title" id="ratesTitle">Villa KaRo 1</h2>
+      <p class="section-lead white-text" data-i18n="preise.lead">Alle Preise pro Nacht, inklusive Housekeeping und WiFi.</p>
+      <div class="rate-card">
+        <div class="rate-price" id="mainPrice">IDR 3.000.000</div>
+        <div class="rate-price-sub" id="mainPriceSub">≈ €175 · <span data-i18n="preise.perNight">pro Nacht</span></div>
+        <ul class="rate-features">
+          <li data-i18n="preise.feature1">1 Schlafzimmer · Kingsize</li>
+          <li data-i18n="preise.feature2">Privater Pool</li>
+          <li data-i18n="preise.feature3">Tropischer Garten</li>
+          <li data-i18n="preise.feature4">Housekeeping &amp; WiFi</li>
+        </ul>
+      </div>
+      <p class="rates-details" data-i18n="preise.details">Mindestaufenthalt 3 Nächte. Saisonale Preise auf Anfrage. Wir freuen uns, Ihnen ein persönliches Angebot zu machen.</p>
+      <a href="#contact" class="btn" data-i18n="preise.cta">Verfügbarkeit anfragen</a>
     </div>
   </section>
 
-  <!-- ================= TESTIMONIALS ================= -->
+  <!-- TESTIMONIALS -->
   <section class="section testimonials">
     <div class="container">
-      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
-        <div class="eyebrow">Stimmen unserer Gäste</div>
-        <h2 class="section-title">Was Gäste erzählen</h2>
+      <div class="reveal centered-block">
+        <div class="eyebrow" data-i18n="testimonials.eyebrow">Stimmen unserer Gäste</div>
+        <h2 class="section-title" data-i18n="testimonials.title">Was Gäste erzählen</h2>
       </div>
       <div class="testi-grid">
         <div class="testi-card reveal">
-          <blockquote>Die perfekte Mischung aus Luxus und Ruhe. Wir sind erholt zurückgekommen wie schon lange nicht mehr.</blockquote>
-          <div class="testi-author">Anna &amp; Michael · Berlin</div>
+          <blockquote data-i18n="testimonials.q1">Die perfekte Mischung aus Luxus und Ruhe. Wir sind erholt zurückgekommen wie schon lange nicht mehr.</blockquote>
+          <div class="testi-author" data-i18n="testimonials.a1">Anna &amp; Michael · Berlin</div>
         </div>
         <div class="testi-card reveal">
-          <blockquote>Katrin und Ronny haben einen Ort mit Seele geschaffen. Der Garten allein war die Reise wert.</blockquote>
-          <div class="testi-author">Julia &amp; Tom · Hamburg</div>
+          <blockquote data-i18n="testimonials.q2">Ein Ort mit Seele. Der Garten allein war die Reise wert — und Mudi ein wunderbarer Gastgeber.</blockquote>
+          <div class="testi-author" data-i18n="testimonials.a2">Julia &amp; Tom · Hamburg</div>
         </div>
         <div class="testi-card reveal">
-          <blockquote>Wir kommen wieder. So einfach ist das. Pemuteran ist ein Geheimnis, das man kennen sollte.</blockquote>
-          <div class="testi-author">Sophie &amp; David · Zürich</div>
+          <blockquote data-i18n="testimonials.q3">Wir kommen wieder. So einfach ist das. Pemuteran ist ein Geheimnis, das man kennen sollte.</blockquote>
+          <div class="testi-author" data-i18n="testimonials.a3">Sophie &amp; David · Zürich</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= CONTACT ================= -->
+  <!-- KONTAKT -->
   <section class="section contact" id="contact">
     <div class="container">
-      <div class="reveal" style="text-align:center;max-width:640px;margin:0 auto;">
-        <div class="eyebrow">Kontakt</div>
-        <h2 class="section-title">Schreiben Sie uns.</h2>
-        <p class="section-lead" style="margin:0 auto;">
-          Anfrage, Verfügbarkeit, Wünsche — wir antworten persönlich, meist innerhalb eines Tages.
-        </p>
+      <div class="reveal centered-block">
+        <div class="eyebrow" data-i18n="contact.eyebrow">Kontakt</div>
+        <h2 class="section-title" data-i18n="contact.title">Schreiben Sie uns.</h2>
+        <p class="section-lead" data-i18n="contact.lead">Anfrage, Verfügbarkeit, Wünsche — Mudi antwortet persönlich, meist innerhalb eines Tages.</p>
       </div>
       <div class="contact-grid">
-        <form class="contact-form reveal" onsubmit="event.preventDefault(); alert('Danke! Dies ist eine Demo-Seite — Ihre Anfrage würde hier übermittelt werden.');">
-          <label for="name">Name</label>
+        <form class="contact-form reveal" id="contactForm">
+          <label for="name" data-i18n="contact.name">Name</label>
           <input type="text" id="name" name="name" required>
-          <label for="email">E-Mail</label>
+          <label for="email" data-i18n="contact.email">E-Mail</label>
           <input type="email" id="email" name="email" required>
           <div class="form-row">
             <div>
-              <label for="from">Anreise</label>
+              <label for="from" data-i18n="contact.arrival">Anreise</label>
               <input type="date" id="from" name="from">
             </div>
             <div>
-              <label for="to">Abreise</label>
+              <label for="to" data-i18n="contact.departure">Abreise</label>
               <input type="date" id="to" name="to">
             </div>
           </div>
-          <label for="msg">Nachricht</label>
-          <textarea id="msg" name="msg" placeholder="Erzählen Sie uns von Ihrer Reise…"></textarea>
-          <button type="submit" class="btn">Anfrage senden</button>
+          <label for="villa-choice" data-i18n="contact.villaField">Villa</label>
+          <select id="villa-choice" name="villa-choice">
+            <option value="either" data-i18n="contact.eitherOption">Egal / Beraten Sie mich</option>
+            <option value="karo-1">Villa KaRo 1</option>
+            <option value="karo-2">Villa KaRo 2</option>
+            <option value="both" data-i18n="contact.bothOption">Beide (Familien / Freunde)</option>
+          </select>
+          <label for="msg" data-i18n="contact.messageLabel">Nachricht</label>
+          <textarea id="msg" name="msg" data-i18n-placeholder="contact.messagePlaceholder" placeholder="Erzählen Sie uns von Ihrer Reise…"></textarea>
+          <button type="submit" class="btn" data-i18n="contact.submit">Anfrage senden</button>
         </form>
         <div class="contact-info reveal">
-          <h3>Katrin &amp; Ronny</h3>
-          <p>Gastgeber von Villa KaRo. Wir freuen uns, Sie in Pemuteran begrüßen zu dürfen.</p>
+          <h3>Mr. Gede Mudiarta</h3>
+          <p class="contact-role" data-i18n="contact.role">Ihr Ansprechpartner vor Ort · genannt „Mudi"</p>
           <ul class="contact-list">
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16v16H4z M4 4l8 8 8-8"/></svg>
-              <div><span class="label">E-Mail</span><span class="value">hello@villa-karo.com</span></div>
+              <div><span class="label" data-i18n="contact.emailLabel">E-Mail</span><span class="value">hello@villa-karo.com</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92V21a1 1 0 01-1.11 1A19 19 0 012 4.11 1 1 0 013 3h4.09a1 1 0 011 .75l1 4a1 1 0 01-.29 1L7 10.5a16 16 0 006.5 6.5l1.75-1.79a1 1 0 011-.29l4 1a1 1 0 01.75 1z"/></svg>
-              <div><span class="label">Telefon</span><span class="value">+49 30 12345678</span></div>
+              <div><span class="label" data-i18n="contact.phoneLabel">Telefon</span><span class="value">+62 823 4133 9290</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
-              <div><span class="label">WhatsApp</span><span class="value">+62 812 3456 7890</span></div>
+              <div><span class="label">WhatsApp</span><span class="value">+62 823 4133 9290</span></div>
             </li>
             <li>
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a5 5 0 015 5c0 3-5 8-5 8S7 10 7 7a5 5 0 015-5z M9 21h6"/></svg>
-              <div><span class="label">Adresse</span><span class="value">Pemuteran, Buleleng, Bali</span></div>
+              <div><span class="label" data-i18n="contact.addressLabel">Adresse</span><span class="value">Desa Pemuteran, Buleleng, Bali</span></div>
             </li>
           </ul>
         </div>
@@ -298,17 +300,21 @@
     </div>
   </section>
 
-  <!-- ================= FOOTER ================= -->
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">Villa <span class="ka">Ka</span><span class="ro">Ro</span></div>
-      <div class="footer-tag">— Ein privater Rückzugsort in Pemuteran, Bali —</div>
-      <div class="footer-meta">
-        © 2026 Villa KaRo · Katrin Landgraf-Kluge &amp; Ronny Kluge
+      <img src="images/logo.png" alt="Villa KaRo" class="footer-logo-img">
+      <div class="footer-tag" data-i18n="footer.tag">— Zwei private Rückzugsorte in Pemuteran, Bali —</div>
+      <div class="footer-address">
+        <strong data-i18n="footer.ownerLabel">Owner:</strong> Mr. Gede Mudiarta<br>
+        Jln Raya Singaraja–Gilimanuk, Banjar Dinas Lokasegara<br>
+        Desa Pemuteran, Gerokgak 81155, Buleleng, Bali
       </div>
+      <div class="footer-meta" data-i18n="footer.copyright">© 2026 Villa KaRo · Alle Rechte vorbehalten</div>
     </div>
   </footer>
 
+  <script src="assets/content.js"></script>
   <script src="assets/script.js"></script>
 </body>
 </html>
